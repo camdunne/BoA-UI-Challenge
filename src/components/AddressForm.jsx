@@ -1,5 +1,6 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
+import { Button } from 'react-bootstrap';
 
 const AddressForm = ({ handleSubmit, reset }) => (
   <div>
@@ -36,16 +37,20 @@ const AddressForm = ({ handleSubmit, reset }) => (
           type="text"
         />
       </div>
-      <button
+      <Button
+        bsStyle="primary"
+        bsSize="large"
         onClick={reset}
       >
         {'cancel'}
-      </button>
-      <button
+      </Button>
+      <Button
+        bsStyle="primary"
+        bsSize="large"
         type="submit"
       >
         {'Submit'}
-      </button>
+      </Button>
     </form>
   </div>
 );

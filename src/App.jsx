@@ -7,9 +7,14 @@ import TeamsContainer from './containers/TeamsContainer';
 const App = () => (
   <div>
     <Header />
-    <NameContainer />
-    <AddressContainer />
-    <TeamsContainer />
+    <div className="container">
+      <hr />
+      <NameContainer />
+      <hr />
+      <AddressContainer />
+      <hr />
+      <TeamsContainer />
+    </div>
   </div>
 );
 

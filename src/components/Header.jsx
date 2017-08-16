@@ -2,9 +2,9 @@ import React from 'react';
 
 const Header = () => (
   <div>
-    <div className="navbar">
+    <header className="navbar">
       <h1>{'Sports Magazine'}</h1>
-    </div>
+    </header>
     <div className="title">
       <h1>{'Sports Magazine Settings'}</h1>
     </div>

@@ -6,6 +6,9 @@ import * as teamsActions from '../actions/teamsActions';
 const TeamsFormContainer = props =>
   (
     <TeamsForm
+      addInputLength={props.addInputLength}
+      negInputLength={props.negInputLength}
+      inputNumber={props.inputLength}
       teams={props.teams}
       onSubmit={props.updateTeams}
     />

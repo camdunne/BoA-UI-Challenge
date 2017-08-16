@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Modal } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import TeamsFormContainer from '../containers/TeamsFormContainer';
 
 const Teams = ({ teams, showModal, onOpen, onClose }) => (
@@ -8,21 +8,21 @@ const Teams = ({ teams, showModal, onOpen, onClose }) => (
     <h3>{'Favourite Teams'}</h3>
     <div>
       {
-        (teams.length === 0) ? teams.map(team => (
-          <div>
-            {team.number}
-            {team.name}
+        (teams.array.length > 0) ? teams.array.map((teamName, i) => (
+          <div key={i}>
+            {i + 1}{': '}{teamName}
           </div>
-        )) :
-        <div>{teams.default}</div>
+        )) : <div>{teams.default}</div>
       }
     </div>
-    <button
+    <Button
+      bsStyle="primary"
+      bsSize="large"
       type="submit"
       onClick={onOpen}
     >
-      {'Edit Teams'}
-    </button>
+      Edit Teams
+    </Button>
 
     <Modal show={showModal} onHide={onClose}>
       <Modal.Header closeButton>
@@ -31,7 +31,7 @@ const Teams = ({ teams, showModal, onOpen, onClose }) => (
       <Modal.Body>
         <TeamsFormContainer />
       </Modal.Body>
-      <Modal.Footer />
+
     </Modal>
   </div>
 );

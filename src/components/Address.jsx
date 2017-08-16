@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Modal } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import AddressFormContainer from '../containers/AddressFormContainer';
 
 const Address = ({ address, showModal, onOpen, onClose }) => (
@@ -10,12 +10,14 @@ const Address = ({ address, showModal, onOpen, onClose }) => (
       <div>{address.street}</div>
       <div>{address.city}, {address.state} {address.zipcode}</div>
     </div>
-    <button
+    <Button
+      bsStyle="primary"
+      bsSize="large"
       type="submit"
       onClick={onOpen}
     >
       {'Edit Address'}
-    </button>
+    </Button>
 
     <Modal show={showModal} onHide={onClose}>
       <Modal.Header closeButton>
@@ -24,7 +26,6 @@ const Address = ({ address, showModal, onOpen, onClose }) => (
       <Modal.Body>
         <AddressFormContainer />
       </Modal.Body>
-      <Modal.Footer />
     </Modal>
   </div>
 );

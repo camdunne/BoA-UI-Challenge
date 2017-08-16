@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Modal } from 'react-bootstrap';
+import { Modal, Button } from 'react-bootstrap';
 import NameFormContainer from '../containers/NameFormContainer';
 
 const Name = ({ name, showModal, onOpen, onClose }) => (
@@ -9,12 +9,14 @@ const Name = ({ name, showModal, onOpen, onClose }) => (
     <div>
       <div>{name.firstname} {name.lastname}</div>
     </div>
-    <button
+    <Button
+      bsStyle="primary"
+      bsSize="large"
       type="submit"
       onClick={onOpen}
     >
       {'Edit Name'}
-    </button>
+    </Button>
 
     <Modal show={showModal} onHide={onClose}>
       <Modal.Header closeButton>
@@ -23,7 +25,6 @@ const Name = ({ name, showModal, onOpen, onClose }) => (
       <Modal.Body>
         <NameFormContainer />
       </Modal.Body>
-      <Modal.Footer />
     </Modal>
   </div>
 );
