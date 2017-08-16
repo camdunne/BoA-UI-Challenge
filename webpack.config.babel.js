@@ -1,7 +1,7 @@
 import { resolve, join } from 'path';
 
 module.exports = () => ({
-  entry: resolve(__dirname, './client/client.jsx'),
+  entry: resolve(__dirname, './src/index.jsx'),
   output: {
     path: resolve(__dirname, './public/build'),
     filename: 'bundle.js',
