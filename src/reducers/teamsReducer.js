@@ -5,9 +5,9 @@ const context = 'TEAMS';
 
 const updateTeams = (state = {
   default: 'None Added',
-  array: [],
+  displayedTeams: [],
 }, action) => {
-  const curr = [...state.array];
+  const curr = [...state.displayedTeams];
   switch (action.type) {
     case 'UPDATE_TEAMS':
       Object.keys(action.payload)
@@ -19,7 +19,7 @@ const updateTeams = (state = {
         });
       return {
         ...state,
-        array: curr,
+        displayedTeams: curr,
       };
     default:
       return state;

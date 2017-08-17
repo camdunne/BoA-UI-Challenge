@@ -10,7 +10,7 @@ const Teams = ({ teams, showModal, onOpen, onClose, resetInput }) => (
         <h3>{'Favourite Teams'}</h3>
         <div>
           {
-            (teams.array.length > 0) ? teams.array.map((teamName, i) => (
+            (teams.length > 0) ? teams.map((teamName, i) => (
               <div key={i}>
                 {i + 1}{': '}{teamName}
               </div>

@@ -5,7 +5,7 @@ import { openTeamsModal, closeTeamsModal, resetInput } from '../actions/teamsAct
 
 const TeamsContainer = props => (
   <Teams
-    teams={props.teams.updateTeams}
+    teams={props.teams.updateTeams.displayedTeams}
     onOpen={props.onOpenTeamsModal}
     onClose={props.onCloseTeamsModal}
     showModal={props.teams.showModal}

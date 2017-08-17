@@ -46,12 +46,12 @@ describe('update forms', () => {
 
 describe('update team form', () => {
   it('should only replace filled slots', () => {
-    const initState = { array: [0, 1, 2, 3] };
+    const initState = { displayedTeams: [0, 1, 2, 3] };
     console.log(teams);
     const actualArray = teams(initState, {
       type: 'UPDATE_TEAMS',
       payload: [5],
-    }).updateTeams.array;
+    }).updateTeams.displayedTeams;
     const expectedArray = [5, 1, 2, 3];
     expect(actualArray).toEqual(expectedArray);
   });
