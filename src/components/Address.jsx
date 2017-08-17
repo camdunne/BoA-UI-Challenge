@@ -5,20 +5,22 @@ import AddressFormContainer from '../containers/AddressFormContainer';
 
 const Address = ({ address, showModal, onOpen, onClose }) => (
   <div>
-    <h3>{'Address'}</h3>
-    <div>
-      <div>{address.street}</div>
-      <div>{address.city}, {address.state} {address.zipcode}</div>
+    <div className="container" >
+      <div className="col-xs-4">
+        <h3>{'Address'}</h3>
+        <div>{address.street}</div>
+        <div>{address.city}, {address.state} {address.zipcode}</div>
+      </div>
+      <div className="col-xs-8 centerButton" >
+        <Button
+          bsClass="btn btn-custom"
+          type="submit"
+          onClick={onOpen}
+        >
+          {'Edit Address'}
+        </Button>
+      </div>
     </div>
-    <Button
-      bsStyle="primary"
-      bsSize="large"
-      type="submit"
-      onClick={onOpen}
-    >
-      {'Edit Address'}
-    </Button>
-
     <Modal show={showModal} onHide={onClose}>
       <Modal.Header closeButton>
         <Modal.Title>{'Edit Address'}</Modal.Title>

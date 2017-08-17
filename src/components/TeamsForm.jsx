@@ -2,47 +2,49 @@ import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { Button } from 'react-bootstrap';
 
-const TeamsForm = ({ addInputLength, negInputLength, inputNumber, handleSubmit, reset }) => (
+const TeamsForm = ({ addInputLength, negInputLength, inputLength, handleSubmit, reset }) => (
   <div>
     <form onSubmit={handleSubmit}>
-      {Array.from({ length: inputNumber }).map((e, i) => (
-        <div key={i}>
-          {`Team ${i + 1} `}
-          <Field
-            component="input"
-            name={`${i}`}
-            type="text"
-          />
-        </div>
-      ))}
+      <center>
+        {Array.from({ length: inputLength }).map((e, i) => (
+          <div key={i}>
+            {`Team ${i + 1} `}
+            <Field
+              component="input"
+              name={`${i}`}
+              type="text"
+            />
+          </div>
+        ))}
+        <button
+          className="block link"
+          onClick={addInputLength}
+        >
+          {'+ Add Another'}
+        </button>
+        {
+          (inputLength > 3) ?
+            <button
+              className="block link"
+              show={inputLength > 3}
+              onClick={negInputLength}
+            >
+              {'- Remove Field'}
+            </button>
+            : ''
+        }
+      </center>
       <Button
-        onClick={addInputLength}
-      >
-        {'+ Add Another'}
-      </Button>
-      {
-        (inputNumber > 3) ?
-          <Button
-            show={inputNumber > 3}
-            onClick={negInputLength}
-          >
-            {'- Remove Field'}
-          </Button>
-          : ''
-      }
-      <Button
-        bsStyle="primary"
-        bsSize="large"
+        bsClass="btn btn-cancel"
         onClick={reset}
       >
-        {'cancel'}
+        {'Cancel'}
       </Button>
       <Button
-        bsStyle="primary"
-        bsSize="large"
+        bsClass="btn btn-save"
         type="submit"
       >
-        {'Submit'}
+        {'Save'}
       </Button>
     </form>
   </div>

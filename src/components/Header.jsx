@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => (
   <div>
-    <header className="navbar">
+    <header className="nav">
       <h1>{'Sports Magazine'}</h1>
     </header>
     <div className="title">

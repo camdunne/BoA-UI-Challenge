@@ -5,19 +5,23 @@ import NameFormContainer from '../containers/NameFormContainer';
 
 const Name = ({ name, showModal, onOpen, onClose }) => (
   <div>
-    <h3>{'Name'}</h3>
-    <div>
-      <div>{name.firstname} {name.lastname}</div>
+    <div className="container">
+      <div className="col-xs-4">
+        <h3>{'Name'}</h3>
+        <div>
+          <div>{name.firstname} {name.lastname}</div>
+        </div>
+      </div>
+      <div className="col-xs-8 centerButton">
+        <Button
+          bsClass="btn btn-custom"
+          type="submit"
+          onClick={onOpen}
+        >
+          {'Edit Name'}
+        </Button>
+      </div>
     </div>
-    <Button
-      bsStyle="primary"
-      bsSize="large"
-      type="submit"
-      onClick={onOpen}
-    >
-      {'Edit Name'}
-    </Button>
-
     <Modal show={showModal} onHide={onClose}>
       <Modal.Header closeButton>
         <Modal.Title>{'Edit Name'}</Modal.Title>

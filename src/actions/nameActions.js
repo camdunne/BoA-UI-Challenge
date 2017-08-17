@@ -12,3 +12,8 @@ export function closeNameModal() {
   return dispatch => dispatch(
     { type: 'CLOSE_NAME_MODAL', payload: false });
 }
+
+export function resetNumber() {
+  return dispatch => dispatch(
+    { type: 'RESET_NUM', payload: 3 });
+}

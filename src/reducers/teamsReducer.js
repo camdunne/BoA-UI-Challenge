@@ -26,6 +26,8 @@ const inputLength = (state = 3, action) => {
       return state + action.payload;
     case 'NEG_INPUT_LENGTH':
       return (state > 3) ? state - action.payload : 3;
+    case 'RESET_NUM':
+      return action.payload;
     default:
       return state;
   }

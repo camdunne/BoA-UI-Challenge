@@ -5,35 +5,35 @@ import { Button } from 'react-bootstrap';
 const NameForm = ({ handleSubmit, reset }) => (
   <div>
     <form onSubmit={handleSubmit}>
-      <div>
-        {'First Name:'}
-        <Field
-          component="input"
-          name="firstname"
-          type="text"
-        />
-      </div>
-      <div>
-        {'Last Name:'}
-        <Field
-          component="input"
-          name="lastname"
-          type="text"
-        />
-      </div>
+      <center>
+        <div>
+          {'First Name:'}
+          <Field
+            component="input"
+            name="firstname"
+            type="text"
+          />
+        </div>
+        <div>
+          {'Last Name:'}
+          <Field
+            component="input"
+            name="lastname"
+            type="text"
+          />
+        </div>
+      </center>
       <Button
-        bsStyle="primary"
-        bsSize="large"
+        bsClass="btn btn-cancel"
         onClick={reset}
       >
-        {'cancel'}
+        {'Cancel'}
       </Button>
       <Button
-        bsStyle="primary"
-        bsSize="large"
+        bsClass="btn btn-save"
         type="submit"
       >
-        {'Submit'}
+        {'Save'}
       </Button>
     </form>
   </div>

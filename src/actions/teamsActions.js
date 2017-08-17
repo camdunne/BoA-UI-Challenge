@@ -22,3 +22,9 @@ export function negInputLength() {
   return dispatch => dispatch(
     { type: 'NEG_INPUT_LENGTH', payload: 1 });
 }
+
+export function resetInput() {
+  console.log('10923rhfdiojaefoijas;diflj309r');
+  return dispatch => dispatch(
+    { type: 'RESET_NUM', payload: 3 });
+}

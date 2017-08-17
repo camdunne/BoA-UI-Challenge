@@ -3,35 +3,38 @@ import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
 import TeamsFormContainer from '../containers/TeamsFormContainer';
 
-const Teams = ({ teams, showModal, onOpen, onClose }) => (
+const Teams = ({ teams, showModal, onOpen, onClose, resetInput }) => (
   <div>
-    <h3>{'Favourite Teams'}</h3>
-    <div>
-      {
-        (teams.array.length > 0) ? teams.array.map((teamName, i) => (
-          <div key={i}>
-            {i + 1}{': '}{teamName}
-          </div>
-        )) : <div>{teams.default}</div>
-      }
-    </div>
-    <Button
-      bsStyle="primary"
-      bsSize="large"
-      type="submit"
-      onClick={onOpen}
-    >
+    <div className="container">
+      <div className="col-xs-4">
+        <h3>{'Favourite Teams'}</h3>
+        <div>
+          {
+            (teams.array.length > 0) ? teams.array.map((teamName, i) => (
+              <div key={i}>
+                {i + 1}{': '}{teamName}
+              </div>
+            )) : <div>{teams.default}</div>
+          }
+        </div>
+      </div>
+      <div className="col-xs-8">
+        <Button
+          bsClass="btn btn-custom"
+          type="submit"
+          onClick={onOpen}
+        >
       Edit Teams
-    </Button>
-
-    <Modal show={showModal} onHide={onClose}>
+        </Button>
+      </div>
+    </div>
+    <Modal show={showModal} onHide={() => { onClose(); resetInput(); }}>
       <Modal.Header closeButton>
         <Modal.Title>{'Add Teams'}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <TeamsFormContainer />
       </Modal.Body>
-
     </Modal>
   </div>
 );
