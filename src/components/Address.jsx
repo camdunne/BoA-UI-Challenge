@@ -36,6 +36,12 @@ Address.defaultProps = {
   showModal: false,
 };
 Address.propTypes = {
+  address: PropTypes.shape({
+    street: PropTypes.string,
+    city: PropTypes.string,
+    state: PropTypes.string,
+    zipcode: PropTypes.string,
+  }).isRequired,
   showModal: PropTypes.bool,
   onOpen: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,

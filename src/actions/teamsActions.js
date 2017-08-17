@@ -18,6 +18,15 @@ export function negInputLength() {
   return { type: 'NEG_INPUT_LENGTH', payload: 1 };
 }
 
-export function resetInput() {
-  return { type: 'RESET_NUM', payload: 3 };
+export function resetInput(param) {
+  const payload = (param > 3) ? param : 3;
+  return { type: 'RESET_NUM', payload };
+}
+
+export function updateTempTeams(params) {
+  return { type: 'UPDATE_TEMP_TEAMS', payload: params };
+}
+
+export function resetTempTeams() {
+  return { type: 'RESET_TEMP_TEAMS' };
 }

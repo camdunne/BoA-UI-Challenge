@@ -1,24 +1,25 @@
 import React from 'react';
-import { reduxForm, Field } from 'redux-form';
+import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 
-const NameForm = ({ handleSubmit, reset }) => (
+const NameForm = ({ name, handleClick, updateTempName, reset }) => (
   <div>
-    <form onSubmit={handleSubmit}>
+    <form>
       <center>
         <div>
           {'First Name:'}
-          <Field
-            value="Johnny"
-            component="input"
+          <input
+            defaultValue={name.firstname}
+            onChange={(e) => { updateTempName({ firstname: e.target.value }); }}
             name="firstname"
             type="text"
           />
         </div>
         <div>
           {'Last Name:'}
-          <Field
-            component="input"
+          <input
+            defaultValue={name.lastname}
+            onChange={(e) => { updateTempName({ lastname: e.target.value }); }}
             name="lastname"
             type="text"
           />
@@ -32,7 +33,7 @@ const NameForm = ({ handleSubmit, reset }) => (
       </Button>
       <Button
         bsClass="btn btn-save"
-        type="submit"
+        onClick={handleClick}
       >
         {'Save'}
       </Button>
@@ -40,6 +41,14 @@ const NameForm = ({ handleSubmit, reset }) => (
   </div>
 );
 
-export default reduxForm({
-  form: 'name',
-})(NameForm);
+NameForm.propTypes = {
+  name: PropTypes.shape({
+    firstname: PropTypes.string,
+    lastname: PropTypes.string,
+  }).isRequired,
+  handleClick: PropTypes.func.isRequired,
+  updateTempName: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired,
+};
+
+export default NameForm;

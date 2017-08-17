@@ -1,24 +1,43 @@
 import React from 'react';
-import { reduxForm, Field } from 'redux-form';
+import PropTypes from 'prop-types';
 import { Button } from 'react-bootstrap';
 
-const TeamsForm = ({ addInputLength, negInputLength, inputLength, handleSubmit, reset }) => (
+const TeamsForm = ({
+  teams,
+  addInputLength,
+  negInputLength,
+  inputLength,
+  handleClick,
+  updateTempTeams,
+  reset,
+}) => (
   <div>
-    <form onSubmit={handleSubmit}>
+    <form >
       <center>
-        {Array.from({ length: inputLength }).map((e, i) => (
+        {Array.from({ length: inputLength }).map((element, i) => (
           <div key={i}>
             {`Team ${i + 1} `}
-            <Field
-              component="input"
-              name={`${i}`}
+            <input
+              defaultValue={teams.displayedTeams[i]}
+              onChange={(e) => {
+                updateTempTeams((() => {
+                  console.log(teams);
+                  const current = teams.displayedTeams;
+                  current[i] = e.target.value;
+                  if (e.target.value === '') {
+                    current.splice(i, 1);
+                  }
+                  return { displayedTeams: current };
+                })());
+              }}
+              name={i}
               type="text"
             />
           </div>
         ))}
         <button
           className="block link"
-          onClick={addInputLength}
+          onClick={(e) => { e.preventDefault(); addInputLength(); }}
         >
           {'+ Add Another'}
         </button>
@@ -27,7 +46,7 @@ const TeamsForm = ({ addInputLength, negInputLength, inputLength, handleSubmit, 
             <button
               className="block link"
               show={inputLength > 3}
-              onClick={negInputLength}
+              onClick={(e) => { e.preventDefault(); negInputLength(); }}
             >
               {'- Remove Field'}
             </button>
@@ -42,7 +61,7 @@ const TeamsForm = ({ addInputLength, negInputLength, inputLength, handleSubmit, 
       </Button>
       <Button
         bsClass="btn btn-save"
-        type="submit"
+        onClick={handleClick}
       >
         {'Save'}
       </Button>
@@ -50,6 +69,19 @@ const TeamsForm = ({ addInputLength, negInputLength, inputLength, handleSubmit, 
   </div>
 );
 
-export default reduxForm({
-  form: 'teams',
-})(TeamsForm);
+TeamsForm.defaultProps = {
+};
+TeamsForm.propTypes = {
+  teams: PropTypes.shape({
+    default: PropTypes.string,
+    displayedNames: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
+  addInputLength: PropTypes.func.isRequired,
+  negInputLength: PropTypes.func.isRequired,
+  inputLength: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  updateTempTeams: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired,
+};
+
+export default TeamsForm;

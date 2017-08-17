@@ -37,6 +37,10 @@ Name.defaultProps = {
   showModal: false,
 };
 Name.propTypes = {
+  name: PropTypes.shape({
+    firstname: PropTypes.string,
+    lastname: PropTypes.string,
+  }).isRequired,
   showModal: PropTypes.bool,
   onOpen: PropTypes.func.isRequired,
   onClose: PropTypes.func.isRequired,

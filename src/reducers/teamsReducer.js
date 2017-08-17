@@ -1,12 +1,15 @@
 import { combineReducers } from 'redux';
 import modalHelper from './utils/modalHelper';
+import tempHelper from './utils/tempHelper';
+import displayedHelper from './utils/displayedHelper';
 
 const context = 'TEAMS';
-
-const updateTeams = (state = {
+const initState = {
   default: 'None Added',
   displayedTeams: [],
-}, action) => {
+};
+
+const updateTeams = (state = { ...initState }, action) => {
   const curr = [...state.displayedTeams];
   switch (action.type) {
     case 'UPDATE_TEAMS':
@@ -41,10 +44,17 @@ const inputLength = (state = 3, action) => {
 
 const showModal = modalHelper(context);
 
+const prevState = { ...initState };
+const tempTeams = tempHelper(context, prevState);
+
+const currentDisplayed = displayedHelper(context);
 
 const rootReducer = combineReducers({
   showModal,
   updateTeams,
   inputLength,
+  tempTeams,
+  currentDisplayed,
 });
+
 export default rootReducer;

@@ -9,3 +9,11 @@ export function openNameModal() {
 export function closeNameModal() {
   return { type: 'CLOSE_NAME_MODAL', payload: false };
 }
+
+export function updateTempName(params) {
+  return { type: 'UPDATE_TEMP_NAME', payload: params };
+}
+
+export function resetTempName() {
+  return { type: 'RESET_TEMP_NAME' };
+}
