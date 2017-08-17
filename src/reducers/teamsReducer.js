@@ -7,13 +7,19 @@ const updateTeams = (state = {
   default: 'None Added',
   array: [],
 }, action) => {
+  const curr = [...state.array];
   switch (action.type) {
     case 'UPDATE_TEAMS':
+      Object.keys(action.payload)
+        .filter(e => e && Number(e) >= 0)
+        .forEach((team, i) => {
+          if (action.payload[team]) {
+            curr[i] = action.payload[team];
+          }
+        });
       return {
         ...state,
-        array: Object.keys(action.payload)
-          .filter(e => e && Number(e) >= 0)
-          .map(team => action.payload[team]),
+        array: curr,
       };
     default:
       return state;

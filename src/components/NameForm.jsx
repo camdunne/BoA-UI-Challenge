@@ -9,6 +9,7 @@ const NameForm = ({ handleSubmit, reset }) => (
         <div>
           {'First Name:'}
           <Field
+            value="Johnny"
             component="input"
             name="firstname"
             type="text"

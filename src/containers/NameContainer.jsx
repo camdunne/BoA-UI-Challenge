@@ -6,8 +6,8 @@ import { openNameModal, closeNameModal } from '../actions/nameActions';
 const NameContainer = props => (
   <Name
     name={props.name.updateName}
-    onOpen={props.openNameModal}
-    onClose={props.closeNameModal}
+    onOpen={props.onOpenNameModal}
+    onClose={props.onCloseNameModal}
     showModal={props.name.showModal}
   />
 );
@@ -15,9 +15,16 @@ const NameContainer = props => (
 const mapStateToProps = name => ({
   ...name,
 });
-
+const mapDispatchToProps = dispatch => ({
+  onOpenNameModal() {
+    dispatch(openNameModal());
+  },
+  onCloseNameModal() {
+    dispatch(closeNameModal());
+  },
+});
 
 export default connect(
   mapStateToProps,
-  { openNameModal, closeNameModal },
+  mapDispatchToProps,
 )(NameContainer);

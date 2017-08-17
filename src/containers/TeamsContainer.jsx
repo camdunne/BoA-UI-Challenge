@@ -5,11 +5,11 @@ import { openTeamsModal, closeTeamsModal, resetInput } from '../actions/teamsAct
 
 const TeamsContainer = props => (
   <Teams
-    resetInput={props.resetInput}
     teams={props.teams.updateTeams}
-    onOpen={props.openTeamsModal}
-    onClose={props.closeTeamsModal}
+    onOpen={props.onOpenTeamsModal}
+    onClose={props.onCloseTeamsModal}
     showModal={props.teams.showModal}
+    resetInput={props.onResetInput}
   />
 );
 
@@ -17,8 +17,19 @@ const mapStateToProps = teams => ({
   ...teams,
 });
 
+const mapDispatchToProps = dispatch => ({
+  onOpenTeamsModal() {
+    dispatch(openTeamsModal());
+  },
+  onCloseTeamsModal() {
+    dispatch(closeTeamsModal());
+  },
+  onResetInput() {
+    dispatch(resetInput());
+  },
+});
 
 export default connect(
   mapStateToProps,
-  { openTeamsModal, closeTeamsModal, resetInput },
+  mapDispatchToProps,
 )(TeamsContainer);

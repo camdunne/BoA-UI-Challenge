@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TeamsForm from '../components/TeamsForm';
-import * as teamsActions from '../actions/teamsActions';
+import { addInputLength, negInputLength, updateTeams } from '../actions/teamsActions';
 
 const TeamsFormContainer = props => (
   <TeamsForm
-    addInputLength={props.addInputLength}
-    negInputLength={props.negInputLength}
+    addInputLength={props.onAddInputLength}
+    negInputLength={props.onNegInputLength}
     inputLength={props.inputLength}
     teams={props.teams}
-    onSubmit={props.updateTeams}
+    onSubmit={props.onUpdateTeams}
   />
 );
 
@@ -17,6 +17,19 @@ const mapStateToProps = ({ teams }) => ({
   ...teams,
 });
 
-export default connect(mapStateToProps, {
-  ...teamsActions,
-})(TeamsFormContainer);
+const mapDispatchToProps = dispatch => ({
+  onAddInputLength() {
+    dispatch(addInputLength());
+  },
+  onNegInputLength() {
+    dispatch(negInputLength());
+  },
+  onUpdateTeams(params) {
+    dispatch(updateTeams(params));
+  },
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(TeamsFormContainer);

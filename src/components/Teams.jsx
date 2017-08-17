@@ -24,7 +24,7 @@ const Teams = ({ teams, showModal, onOpen, onClose, resetInput }) => (
           type="submit"
           onClick={onOpen}
         >
-      Edit Teams
+          {'Update Teams'}
         </Button>
       </div>
     </div>

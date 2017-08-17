@@ -1,21 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import AddressForm from '../components/AddressForm';
-import * as addressActions from '../actions/addressActions';
+import { updateAddress } from '../actions/addressActions';
 
-const AddressFormContainer = props =>
-  (
-    <AddressForm
-      address={props.address}
-      onSubmit={props.updateAddress}
-    />
-  );
+const AddressFormContainer = props => (
+  <AddressForm
+    address={props.updateAddress}
+    onSubmit={props.onUpdateAddress}
+  />
+);
 
 
 const mapStateToProps = ({ address }) => ({
   ...address,
 });
+const mapDispatchToProps = dispatch => ({
+  onUpdateAddress(params) {
+    dispatch(updateAddress(params));
+  },
+});
 
-export default connect(mapStateToProps, {
-  ...addressActions,
-})(AddressFormContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(AddressFormContainer);
