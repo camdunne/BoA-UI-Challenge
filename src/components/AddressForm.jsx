@@ -11,7 +11,6 @@ const AddressForm = ({ address, handleSubmit, reset }) => {
           <div>
             {'Street:'}
             <Field
-              value={address.street}
               component="input"
               name="street"
               type="text"

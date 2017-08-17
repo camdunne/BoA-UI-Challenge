@@ -2,6 +2,8 @@
   "name": "BoA-UI-Challenge",
   "version": "1.0.0",
   "main": "server/server.js",
+  "repository": "https://github.com/camdunne/BoA-UI-Challenge.git",
+  "author": "Cameron Dunne",
   "license": "MIT",
   "scripts": {
     "test": "jest",
@@ -9,7 +11,7 @@
     "start": "node server/server.js",
     "compile": "webpack -w",
     "server": "nodemon server/server.js",
-    "con": "concurrently \"yarn run compile\" \"yarn run server\""
+    "start:dev": "concurrently \"yarn run compile\" \"yarn run server\""
   },
   "dependencies": {
     "babel-core": "^6.25.0",
@@ -62,7 +64,5 @@
     "transform": {
        ".*": "<rootDir>/node_modules/babel-jest"
     }
-  },
-  "repository": "https://github.com/camdunne/BoA-UI-Challenge.git",
-  "author": "Cameron Dunne"
+  }
 }
