@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Name from '../components/Name';
 import { openNameModal, closeNameModal } from '../actions/nameActions';
 
-{ /* Container for Name component, with its redux logic */ }
+/* Container for Name component, with its redux logic */
 
 const NameContainer = (props) => {
   const name = props.name[props.name.currentDisplayed];

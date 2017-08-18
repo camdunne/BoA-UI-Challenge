@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import TeamsForm from '../components/TeamsForm';
 import { addInputLength, negInputLength, updateTeams, updateTempTeams, resetTempTeams } from '../actions/teamsActions';
 
-{ /* Container for TeamsForm component, with its redux logic */ }
+/* Container for TeamsForm component, with its redux logic */
 
 const TeamsFormContainer = (props) => {
   const handleClick = () => { props.onUpdateTeams(props.tempTeams); };

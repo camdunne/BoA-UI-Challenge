@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import AddressForm from '../components/AddressForm';
 import { updateAddress, updateTempAddress, resetTempAddress } from '../actions/addressActions';
 
-{ /* Container for AddressForm component, with its redux logic */ }
+/* Container for AddressForm component, with its redux logic */
 
 const AddressFormContainer = (props) => {
   const handleClick = () => { props.onUpdateAddress(props.tempAddress); };

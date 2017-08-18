@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import NameForm from '../components/NameForm';
 import { updateName, updateTempName, resetTempName } from '../actions/nameActions';
 
-{ /* Container for NameForm component, with its redux logic */ }
+/* Container for NameForm component, with its redux logic */
 
 const NameFormContainer = (props) => {
   const handleClick = () => { props.onUpdateName(props.tempName); };
