@@ -4,6 +4,8 @@ import NameContainer from './containers/NameContainer';
 import AddressContainer from './containers/AddressContainer';
 import TeamsContainer from './containers/TeamsContainer';
 
+// Main Page Screen split up into components
+
 const App = () => (
   <div>
     <Header />

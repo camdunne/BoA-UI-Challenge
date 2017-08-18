@@ -5,6 +5,7 @@ import NameFormContainer from '../containers/NameFormContainer';
 
 const Name = ({ updateName, name, showModal, onOpen, onClose }) => (
   <div>
+    {/* page content for Name */}
     <div className="container">
       <div className="col-xs-4">
         <h3>{'Name'}</h3>
@@ -13,6 +14,7 @@ const Name = ({ updateName, name, showModal, onOpen, onClose }) => (
         </div>
       </div>
       <div className="col-xs-8 centerButton">
+        {/* passing in current state into form */}
         <Button
           bsClass="btn btn-custom"
           type="submit"
@@ -22,6 +24,7 @@ const Name = ({ updateName, name, showModal, onOpen, onClose }) => (
         </Button>
       </div>
     </div>
+    {/* modal behavior */}
     <Modal show={showModal} onHide={onClose}>
       <Modal.Header closeButton>
         <Modal.Title>{'Edit Name'}</Modal.Title>

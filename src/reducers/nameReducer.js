@@ -5,6 +5,7 @@ import tempHelper from './utils/tempHelper';
 import displayedHelper from './utils/displayedHelper';
 
 const context = 'NAME';
+// default state
 const initState = {
   firstname: 'Johnny',
   lastname: 'Smith',

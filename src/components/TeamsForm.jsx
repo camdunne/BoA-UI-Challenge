@@ -14,12 +14,16 @@ const TeamsForm = ({
   <div>
     <form >
       <center>
-        {Array.from({ length: inputLength }).map((element, i) => (
-          <div key={i}>
-            {`Team ${i + 1} `}
+        {/* inputLength determines # of input boxes */}
+        {/* array.from creates new array and the elements of are the team #s */}
+
+        {Array.from({ length: inputLength }, (e, i) => i + 1).map((num, i) => (
+          <div key={num}>
+            {`Team ${num} `}
             <input
               defaultValue={teams.displayedTeams[i]}
               onChange={(e) => {
+                { /* the new array needs to update with new inputs with no undefined values */ }
                 updateTempTeams((() => {
                   const current = [...teams.displayedTeams];
                   current[i] = e.target.value;
@@ -34,6 +38,7 @@ const TeamsForm = ({
             />
           </div>
         ))}
+        {/* these buttons change the # of input boxes */}
         <button
           className="block link"
           onClick={(e) => { e.preventDefault(); addInputLength(); }}

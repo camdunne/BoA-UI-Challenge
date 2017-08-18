@@ -5,7 +5,7 @@ import tempHelper from './utils/tempHelper';
 import displayedHelper from './utils/displayedHelper';
 
 const context = 'ADDRESS';
-
+// default state
 const initState = {
   street: '123 Bowl Lane',
   city: 'New York',

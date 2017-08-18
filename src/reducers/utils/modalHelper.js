@@ -1,3 +1,4 @@
+// toggle modal
 export default context => ((state = false, action) => {
   switch (action.type) {
     case `OPEN_${context}_MODAL`: {

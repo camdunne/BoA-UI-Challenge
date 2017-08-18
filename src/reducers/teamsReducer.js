@@ -8,12 +8,13 @@ const initState = {
   default: 'None Added',
   displayedTeams: [],
 };
-
+// all arrays are spread into new arrays to avoid arrays pointing to the same one in memory
 const updateTeams = (state = initState, action) => {
   switch (action.type) {
     case 'UPDATE_TEAMS':
       return {
         ...state,
+        // filtering out array that has undefined values
         displayedTeams: [...action.payload.displayedTeams]
           .filter(e => e !== undefined),
       };
@@ -21,7 +22,7 @@ const updateTeams = (state = initState, action) => {
       return state;
   }
 };
-
+// input length is to know how many inputs there should be in teams modal
 const inputLength = (state = 3, action) => {
   switch (action.type) {
     case 'ADD_INPUT_LENGTH':
@@ -36,7 +37,7 @@ const inputLength = (state = 3, action) => {
 };
 
 const showModal = modalHelper(context);
-
+// rather than copying initState, wrote it out to avoid same array reference
 const tempState = {
   prevState: {
     default: 'None Added',

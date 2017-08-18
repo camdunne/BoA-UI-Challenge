@@ -6,6 +6,7 @@ const NameForm = ({ name, handleClick, updateTempName, reset }) => (
   <div>
     <form>
       <center>
+        {/* on change is to update form info, which is also displayed on page */}
         <div>
           {'First Name:'}
           <input

@@ -1,5 +1,6 @@
 import React from 'react';
 
+// stateless component, with information for top of screen
 const Header = () => (
   <div>
     <header className="nav">

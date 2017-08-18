@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Address from '../components/Address';
 import { openAddressModal, closeAddressModal } from '../actions/addressActions';
 
+{ /* Container for Address component, with its redux logic */ }
+
 const AddressContainer = (props) => {
   const address = props.address[props.address.currentDisplayed];
   return (

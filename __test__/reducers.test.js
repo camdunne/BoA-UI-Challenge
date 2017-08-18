@@ -4,6 +4,8 @@ import temp from '../src/reducers/utils/tempHelper';
 import update from '../src/reducers/utils/updateHelper';
 import teams from '../src/reducers/teamsReducer';
 
+// all tests check redux logic
+
 const context = 'TEST';
 
 describe('toggle which state to use when toggling modals', () => {

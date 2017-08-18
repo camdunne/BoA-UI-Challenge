@@ -5,6 +5,7 @@ import AddressFormContainer from '../containers/AddressFormContainer';
 
 const Address = ({ updateAddress, address, showModal, onOpen, onClose }) => (
   <div>
+    {/* page content for Address */}
     <div className="container" >
       <div className="col-xs-4">
         <h3>{'Address'}</h3>
@@ -12,6 +13,7 @@ const Address = ({ updateAddress, address, showModal, onOpen, onClose }) => (
         <div>{address.city}, {address.state} {address.zipcode}</div>
       </div>
       <div className="col-xs-8 centerButton" >
+        {/* passing in current state into form */}
         <Button
           bsClass="btn btn-custom"
           type="submit"
@@ -21,6 +23,7 @@ const Address = ({ updateAddress, address, showModal, onOpen, onClose }) => (
         </Button>
       </div>
     </div>
+    {/* modal behavior */}
     <Modal show={showModal} onHide={onClose}>
       <Modal.Header closeButton>
         <Modal.Title>{'Edit Address'}</Modal.Title>

@@ -10,6 +10,7 @@ const Teams = ({ updateTeams, currentLength, teams, showModal, onOpen, onClose, 
         <div className="col-xs-4">
           <h3>{'Favourite Teams'}</h3>
           <div>
+            {/* displayedTeams array is the current information of teams */}
             {
               (teams.displayedTeams.length > 0) ? teams.displayedTeams.map((teamName, i) => (
                 <div key={i}>
@@ -29,6 +30,7 @@ const Teams = ({ updateTeams, currentLength, teams, showModal, onOpen, onClose, 
           </Button>
         </div>
       </div>
+      {/* reset length of modal inputs to either what the length of the main array is or 3 */}
       <Modal show={showModal} onHide={() => { onClose(); resetInput(currentLength); }}>
         <Modal.Header closeButton>
           <Modal.Title>{'Add Teams'}</Modal.Title>

@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Teams from '../components/Teams';
 import { openTeamsModal, closeTeamsModal, resetInput } from '../actions/teamsActions';
 
+{ /* Container for Teams component, with its redux logic */ }
+
 const TeamsContainer = (props) => {
   const teams = props.teams[props.teams.currentDisplayed];
   const currentLength = (props.teams.updateTeams.displayedTeams)
