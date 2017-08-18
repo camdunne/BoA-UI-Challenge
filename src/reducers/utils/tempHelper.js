@@ -7,7 +7,7 @@ export default (context, initState) => ((state = initState, action) => {
     case `RESET_TEMP_${context}`:
       return { ...state.prevState, prevState: state.prevState };
     case `OPEN_${context}_MODAL`:
-      return { ...action.payload };
+      return { ...action.payload, prevState: { ...action.payload } };
     default:
       return state;
   }

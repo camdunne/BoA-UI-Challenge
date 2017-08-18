@@ -14,7 +14,8 @@ const updateTeams = (state = initState, action) => {
     case 'UPDATE_TEAMS':
       return {
         ...state,
-        displayedTeams: [...action.payload.displayedTeams].filter(e => e !== undefined),
+        displayedTeams: [...action.payload.displayedTeams]
+          .filter(e => e !== undefined),
       };
     default:
       return state;
@@ -48,15 +49,33 @@ const tempState = {
 const tempTeams = (state = tempState, action) => {
   switch (action.type) {
     case 'UPDATE_TEMP_TEAMS':
-      return { ...state, displayedTeams: [...action.payload.displayedTeams] };
+      return {
+        ...state,
+        displayedTeams: [...action.payload.displayedTeams],
+      };
     case 'RESET_TEMP_TEAMS':
-      return { ...state.prevState, prevState: { ...state.prevState } };
+      return {
+        ...state.prevState,
+        displayedTeams: [...state.prevState.displayedTeams],
+        prevState: {
+          ...state.prevState,
+          displayedTeams: [...state.prevState.displayedTeams],
+        },
+      };
     case 'OPEN_TEAMS_MODAL':
-      return { ...action.payload };
+      return {
+        ...action.payload,
+        displayedTeams: [...action.payload.displayedTeams],
+        prevState: {
+          ...action.payload,
+          displayedTeams: [...action.payload.displayedTeams],
+        },
+      };
     default:
       return state;
   }
 };
+
 
 const currentDisplayed = displayedHelper(context);
 
