@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
 import AddressFormContainer from '../containers/AddressFormContainer';
 
-const Address = ({ address, showModal, onOpen, onClose }) => (
+const Address = ({ updateAddress, address, showModal, onOpen, onClose }) => (
   <div>
     <div className="container" >
       <div className="col-xs-4">
@@ -15,7 +15,7 @@ const Address = ({ address, showModal, onOpen, onClose }) => (
         <Button
           bsClass="btn btn-custom"
           type="submit"
-          onClick={onOpen}
+          onClick={() => { onOpen(updateAddress); }}
         >
           {'Edit Address'}
         </Button>
@@ -36,6 +36,12 @@ Address.defaultProps = {
   showModal: false,
 };
 Address.propTypes = {
+  updateAddress: PropTypes.shape({
+    street: PropTypes.string,
+    city: PropTypes.string,
+    state: PropTypes.string,
+    zipcode: PropTypes.string,
+  }).isRequired,
   address: PropTypes.shape({
     street: PropTypes.string,
     city: PropTypes.string,

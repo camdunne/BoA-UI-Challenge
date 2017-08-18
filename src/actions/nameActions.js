@@ -1,17 +1,17 @@
-export function updateName(params) {
-  return { type: 'UPDATE_NAME', payload: params };
+export function updateName(payload) {
+  return { type: 'UPDATE_NAME', payload };
 }
 
-export function openNameModal() {
-  return { type: 'OPEN_NAME_MODAL', payload: true };
+export function openNameModal(payload) {
+  return { type: 'OPEN_NAME_MODAL', payload };
 }
 
 export function closeNameModal() {
-  return { type: 'CLOSE_NAME_MODAL', payload: false };
+  return { type: 'CLOSE_NAME_MODAL' };
 }
 
-export function updateTempName(params) {
-  return { type: 'UPDATE_TEMP_NAME', payload: params };
+export function updateTempName(payload) {
+  return { type: 'UPDATE_TEMP_NAME', payload };
 }
 
 export function resetTempName() {

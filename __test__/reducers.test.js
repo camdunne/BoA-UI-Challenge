@@ -1,12 +1,32 @@
+import displayed from '../src/reducers/utils/displayedHelper';
 import modal from '../src/reducers/utils/modalHelper';
+import temp from '../src/reducers/utils/tempHelper';
 import update from '../src/reducers/utils/updateHelper';
 import teams from '../src/reducers/teamsReducer';
 
 const context = 'TEST';
 
+describe('toggle which state to use when toggling modals', () => {
+  it('should go to temp when opening modal', () => {
+    const displayedReducer = displayed('TEST')(context, {
+      type: 'OPEN_TEST_MODAL',
+      payload: 'tempTest',
+    });
+    const expectedReducer = 'tempTest';
+    expect(displayedReducer).toEqual(expectedReducer);
+  });
+  it('should go to temp when closing modal', () => {
+    const displayedReducer = displayed('TEST')(context, {
+      type: 'CLOSE_TEST_MODAL',
+      payload: 'updateTest',
+    });
+    const expectedReducer = 'updateTest';
+    expect(displayedReducer).toEqual(expectedReducer);
+  });
+});
 describe('modal open and close functionality', () => {
   it('should return true state on open', () => {
-    const modalReducer = modal('TEST')(false, {
+    const modalReducer = modal(context)(false, {
       type: 'OPEN_TEST_MODAL',
       payload: true,
     });
@@ -14,8 +34,7 @@ describe('modal open and close functionality', () => {
     expect(modalReducer).toEqual(expectedReducer);
   });
   it('should return true state on open', () => {
-    const context = 'TEST';
-    const modalReducer = modal('TEST')(false, {
+    const modalReducer = modal(context)(false, {
       type: 'CLOSE_TEST_MODAL',
       payload: false,
     });
@@ -24,6 +43,40 @@ describe('modal open and close functionality', () => {
   });
 });
 
+describe('change state for in form values', () => {
+  it('should update temporary content', () => {
+    const initState = {
+      one: 1,
+      two: 2,
+    };
+    const tempReducer = temp(context, initState)(initState, {
+      type: 'UPDATE_TEMP_TEST',
+      payload: { three: 3, two: 4 },
+    });
+    const expectedReducer = {
+      one: 1,
+      two: 4,
+      three: 3,
+    };
+    expect(tempReducer).toEqual(expectedReducer);
+  });
+  it('should update temporary content', () => {
+    const initState = {
+      one: 1,
+      two: 2,
+    };
+    const tempReducer = temp(context, initState)(initState, {
+      type: 'UPDATE_TEMP_TEST',
+      payload: { three: 3, two: 4 },
+    });
+    const expectedReducer = {
+      one: 1,
+      two: 4,
+      three: 3,
+    };
+    expect(tempReducer).toEqual(expectedReducer);
+  });
+});
 describe('update forms', () => {
   it('should update if filled out textbox', () => {
     const initState = {
@@ -45,14 +98,28 @@ describe('update forms', () => {
 });
 
 describe('update team form', () => {
-  it('should only replace filled slots', () => {
-    const initState = { displayedTeams: [0, 1, 2, 3] };
-    console.log(teams);
+  it('should populate array', () => {
+    const initState = {
+      default: 'None Added',
+      displayedTeams: [],
+    };
     const actualArray = teams(initState, {
       type: 'UPDATE_TEAMS',
-      payload: [5],
+      payload: { displayedTeams: [5] },
     }).updateTeams.displayedTeams;
-    const expectedArray = [5, 1, 2, 3];
+    const expectedArray = [5];
+    expect(actualArray).toEqual(expectedArray);
+  });
+  it('should only replace filled slots', () => {
+    const initState = {
+      default: 'None Added',
+      displayedTeams: [0, 1, 2, 3],
+    };
+    const actualArray = teams(initState, {
+      type: 'UPDATE_TEAMS',
+      payload: { displayedTeams: [3] },
+    }).updateTeams.displayedTeams;
+    const expectedArray = [3];
     expect(actualArray).toEqual(expectedArray);
   });
 });

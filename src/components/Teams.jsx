@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
 import TeamsFormContainer from '../containers/TeamsFormContainer';
 
-const Teams = ({ currentLength, teams, showModal, onOpen, onClose, resetInput }) =>
+const Teams = ({ updateTeams, currentLength, teams, showModal, onOpen, onClose, resetInput }) =>
   (
     <div>
       <div className="container">
@@ -23,7 +23,7 @@ const Teams = ({ currentLength, teams, showModal, onOpen, onClose, resetInput })
           <Button
             bsClass="btn btn-custom"
             type="submit"
-            onClick={onOpen}
+            onClick={() => { onOpen(updateTeams); }}
           >
             {'Update Teams'}
           </Button>

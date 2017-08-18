@@ -1,30 +1,30 @@
-export function updateTeams(params) {
-  return { type: 'UPDATE_TEAMS', payload: params };
+export function updateTeams(payload) {
+  return { type: 'UPDATE_TEAMS', payload };
 }
 
-export function openTeamsModal() {
-  return { type: 'OPEN_TEAMS_MODAL', payload: true };
+export function openTeamsModal(payload) {
+  return { type: 'OPEN_TEAMS_MODAL', payload };
 }
 
 export function closeTeamsModal() {
-  return { type: 'CLOSE_TEAMS_MODAL', payload: false };
+  return { type: 'CLOSE_TEAMS_MODAL' };
 }
 
 export function addInputLength() {
-  return { type: 'ADD_INPUT_LENGTH', payload: 1 };
+  return { type: 'ADD_INPUT_LENGTH' };
 }
 
 export function negInputLength() {
-  return { type: 'NEG_INPUT_LENGTH', payload: 1 };
+  return { type: 'NEG_INPUT_LENGTH' };
 }
 
 export function resetInput(param) {
-  const payload = (param > 3) ? param : 3;
+  const payload = (Number(param) > 3) ? param : 3;
   return { type: 'RESET_NUM', payload };
 }
 
-export function updateTempTeams(params) {
-  return { type: 'UPDATE_TEMP_TEAMS', payload: params };
+export function updateTempTeams(payload) {
+  return { type: 'UPDATE_TEMP_TEAMS', payload };
 }
 
 export function resetTempTeams() {

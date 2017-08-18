@@ -8,6 +8,7 @@ const NameContainer = (props) => {
   const name = props.name[props.name.currentDisplayed];
   return (
     <Name
+      updateName={props.name.updateName}
       name={name}
       onOpen={props.onOpenNameModal}
       onClose={props.onCloseNameModal}
@@ -19,8 +20,8 @@ const mapStateToProps = name => ({
   ...name,
 });
 const mapDispatchToProps = dispatch => ({
-  onOpenNameModal() {
-    dispatch(openNameModal());
+  onOpenNameModal(param) {
+    dispatch(openNameModal(param));
   },
   onCloseNameModal() {
     dispatch(closeNameModal());
@@ -33,6 +34,11 @@ NameContainer.defaultProps = {
 NameContainer.propTypes = {
   name: PropTypes.shape({
     showModal: PropTypes.bool,
+    currentDisplayed: PropTypes.string,
+    updateName: PropTypes.shape({
+      firstname: PropTypes.string,
+      lastname: PropTypes.string,
+    }).isRequired,
   }).isRequired,
   showModal: PropTypes.bool,
   onOpenNameModal: PropTypes.func.isRequired,

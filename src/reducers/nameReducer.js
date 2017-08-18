@@ -11,7 +11,11 @@ const initState = {
 };
 const updateName = updateHelper(context, initState);
 const showModal = modalHelper(context);
-const tempName = tempHelper(context, initState);
+const tempState = {
+  prevState: initState,
+  ...initState,
+};
+const tempName = tempHelper(context, tempState);
 const currentDisplayed = displayedHelper(context);
 
 const rootReducer = combineReducers({

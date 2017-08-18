@@ -9,11 +9,17 @@ const initState = {
   street: '123 Bowl Lane',
   city: 'New York',
   state: 'NY',
-  zipcode: 10021,
+  zipcode: '10021',
 };
 const updateAddress = updateHelper(context, initState);
 const showModal = modalHelper(context);
-const tempAddress = tempHelper(context, initState);
+const tempState = {
+  prevState: initState,
+  ...initState,
+};
+const tempAddress = tempHelper(context, tempState);
+
+
 const currentDisplayed = displayedHelper(context);
 
 

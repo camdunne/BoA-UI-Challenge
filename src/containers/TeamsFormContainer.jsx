@@ -42,6 +42,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 TeamsFormContainer.defaultProps = {
+  inputLength: 3,
 };
 TeamsFormContainer.propTypes = {
   tempTeams: PropTypes.shape({
@@ -50,7 +51,7 @@ TeamsFormContainer.propTypes = {
   }).isRequired,
   onAddInputLength: PropTypes.func.isRequired,
   onNegInputLength: PropTypes.func.isRequired,
-  inputLength: PropTypes.func.isRequired,
+  inputLength: PropTypes.number,
   onUpdateTeams: PropTypes.func.isRequired,
   onUpdateTempTeams: PropTypes.func.isRequired,
   onResetTempTeams: PropTypes.func.isRequired,

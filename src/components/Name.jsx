@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
 import NameFormContainer from '../containers/NameFormContainer';
 
-const Name = ({ name, showModal, onOpen, onClose }) => (
+const Name = ({ updateName, name, showModal, onOpen, onClose }) => (
   <div>
     <div className="container">
       <div className="col-xs-4">
@@ -16,7 +16,7 @@ const Name = ({ name, showModal, onOpen, onClose }) => (
         <Button
           bsClass="btn btn-custom"
           type="submit"
-          onClick={onOpen}
+          onClick={() => { onOpen(updateName); }}
         >
           {'Edit Name'}
         </Button>
@@ -37,6 +37,10 @@ Name.defaultProps = {
   showModal: false,
 };
 Name.propTypes = {
+  updateName: PropTypes.shape({
+    firstname: PropTypes.string,
+    lastname: PropTypes.string,
+  }).isRequired,
   name: PropTypes.shape({
     firstname: PropTypes.string,
     lastname: PropTypes.string,

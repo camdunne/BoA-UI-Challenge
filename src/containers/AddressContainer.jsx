@@ -8,6 +8,7 @@ const AddressContainer = (props) => {
   const address = props.address[props.address.currentDisplayed];
   return (
     <Address
+      updateAddress={props.address.updateAddress}
       address={address}
       onOpen={props.onOpenAddressModal}
       onClose={props.onCloseAddressModal}
@@ -21,8 +22,8 @@ const mapStateToProps = address => ({
   ...address,
 });
 const mapDispatchToProps = dispatch => ({
-  onOpenAddressModal() {
-    dispatch(openAddressModal());
+  onOpenAddressModal(param) {
+    dispatch(openAddressModal(param));
   },
   onCloseAddressModal() {
     dispatch(closeAddressModal());
@@ -33,6 +34,12 @@ AddressContainer.propTypes = {
   address: PropTypes.shape({
     currentDisplayed: PropTypes.string,
     showModal: PropTypes.bool,
+    updateAddress: PropTypes.shape({
+      street: PropTypes.string,
+      city: PropTypes.string,
+      state: PropTypes.string,
+      zipcode: PropTypes.string,
+    }).isRequired,
   }).isRequired,
   onOpenAddressModal: PropTypes.func.isRequired,
   onCloseAddressModal: PropTypes.func.isRequired,

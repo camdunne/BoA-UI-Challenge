@@ -11,6 +11,7 @@ const TeamsContainer = (props) => {
     : 3;
   return (
     <Teams
+      updateTeams={props.teams.updateTeams}
       currentLength={currentLength}
       teams={teams}
       onOpen={props.onOpenTeamsModal}
@@ -26,8 +27,8 @@ const mapStateToProps = teams => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onOpenTeamsModal() {
-    dispatch(openTeamsModal());
+  onOpenTeamsModal(param) {
+    dispatch(openTeamsModal(param));
   },
   onCloseTeamsModal() {
     dispatch(closeTeamsModal());

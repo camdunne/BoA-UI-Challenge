@@ -1,8 +1,6 @@
 export default (context) => {
   const camelCaseContext = context[0] + context.substring(1).toLowerCase();
-
   return ((state = `update${camelCaseContext}`, action) => {
-    console.log();
     switch (action.type) {
       case `OPEN_${context}_MODAL`:
         return `temp${camelCaseContext}`;

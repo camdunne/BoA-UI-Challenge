@@ -21,8 +21,7 @@ const TeamsForm = ({
               defaultValue={teams.displayedTeams[i]}
               onChange={(e) => {
                 updateTempTeams((() => {
-                  console.log(teams);
-                  const current = teams.displayedTeams;
+                  const current = [...teams.displayedTeams];
                   current[i] = e.target.value;
                   if (e.target.value === '') {
                     current.splice(i, 1);
@@ -70,6 +69,7 @@ const TeamsForm = ({
 );
 
 TeamsForm.defaultProps = {
+  inputLength: 3,
 };
 TeamsForm.propTypes = {
   teams: PropTypes.shape({
@@ -78,7 +78,7 @@ TeamsForm.propTypes = {
   }).isRequired,
   addInputLength: PropTypes.func.isRequired,
   negInputLength: PropTypes.func.isRequired,
-  inputLength: PropTypes.func.isRequired,
+  inputLength: PropTypes.number,
   handleClick: PropTypes.func.isRequired,
   updateTempTeams: PropTypes.func.isRequired,
   reset: PropTypes.func.isRequired,
