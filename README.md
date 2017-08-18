@@ -3,10 +3,13 @@
 ## Table of Contents
 
 1. [Tech Stack](#tech-stack)
-  1. [Front End](#front-end)
-  1. [Back End](#back-end)
+    1. [Front End](#front-end)
+    1. [Back End](#back-end)
 1. [Requirements](#requirements)
 1. [Running Application](#running-application)
+    1. [yarn](#yarn)
+    1. [npm](#npm)
+    1. [test][#test]
 1. [Support](#support)
 
 ## Tech Stack
@@ -39,6 +42,16 @@ npm run compile
 to run server:
 ```sh
 npm run server
+```
+
+### test
+testing with jest, to run:
+```sh
+yarn test
+```
+or
+```sh
+npm test
 ```
 
 ## Support
