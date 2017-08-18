@@ -9,7 +9,7 @@
 1. [Running Application](#running-application)
     1. [yarn](#yarn)
     1. [npm](#npm)
-    1. [test][#test]
+    1. [test](#test)
 1. [Support](#support)
 
 ## Tech Stack
@@ -46,10 +46,11 @@ npm run server
 
 ### test
 testing with jest, to run:
+  with yarn:
 ```sh
 yarn test
 ```
-or
+  or with npm:
 ```sh
 npm test
 ```
