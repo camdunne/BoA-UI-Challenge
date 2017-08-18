@@ -45,8 +45,7 @@ npm run server
 ```
 
 ### test
-testing with jest, to run:
-  with yarn:
+testing with jest, to run with yarn:
 ```sh
 yarn test
 ```

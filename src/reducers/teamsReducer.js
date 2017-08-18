@@ -14,7 +14,7 @@ const updateTeams = (state = initState, action) => {
     case 'UPDATE_TEAMS':
       return {
         ...state,
-        displayedTeams: [...action.payload.displayedTeams].array.filter(e => e !== undefined),
+        displayedTeams: [...action.payload.displayedTeams].filter(e => e !== undefined),
       };
     default:
       return state;
