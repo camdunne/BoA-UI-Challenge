@@ -1,12 +1,10 @@
-import { applyMiddleware, createStore, compose } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import ReduxLogger from 'redux-logger';
-import thunk from 'redux-thunk'; // allows you to fire off more than one action
-import persistState from 'redux-localstorage';
+import thunk from 'redux-thunk';
 import reducer from './reducers';
 
 const middleware = applyMiddleware(thunk, ReduxLogger);
-const enhancer = compose(persistState());
 const store = createStore(reducer, composeWithDevTools(middleware));
 
 export default store;

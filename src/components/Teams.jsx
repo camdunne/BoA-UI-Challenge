@@ -46,6 +46,7 @@ Teams.defaultProps = {
   currentLength: 3,
 };
 Teams.propTypes = {
+  updateTeams: PropTypes.shape({}).isRequired,
   currentLength: PropTypes.number,
   teams: PropTypes.shape({
     default: PropTypes.string,
