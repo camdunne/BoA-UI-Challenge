@@ -11,8 +11,8 @@ const Teams = ({ updateTeams, currentLength, teams, showModal, onOpen, onClose, 
           <h3>{'Favourite Teams'}</h3>
           <div>
             {
-              (teams.displayedTeams.length > 0) ? teams.displayedTeams.map((teamName, i) => (
-                <div key={i}>
+              (teams.displayedTeams.length > 0) ? teams.displayedTeams.map((teamName, i, a) => (
+                <div key={a[i]}>
                   {i + 1}{': '}{teamName}
                 </div>
               )) : <div>{teams.default}</div>

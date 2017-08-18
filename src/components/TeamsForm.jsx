@@ -14,8 +14,8 @@ const TeamsForm = ({
   <div>
     <form >
       <center>
-        {Array.from({ length: inputLength }).map((element, i) => (
-          <div key={i}>
+        {Array.from({ length: inputLength }).map((element, i, a) => (
+          <div key={a[i]}>
             {`Team ${i + 1} `}
             <input
               defaultValue={teams.displayedTeams[i]}
