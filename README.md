@@ -1,4 +1,4 @@
-# BoA UI Challenge
+# UI Redux Challenge
 
 ## Table of Contents
 
