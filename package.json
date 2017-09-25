@@ -1,8 +1,8 @@
 {
-  "name": "BoA-UI-Challenge",
+  "name": "UI-Redux-Challenge",
   "version": "1.0.0",
   "main": "server/server.js",
-  "repository": "https://github.com/camdunne/BoA-UI-Challenge.git",
+  "repository": "https://github.com/camdunne/UI-Redux-Challenge.git",
   "author": "Cameron Dunne",
   "license": "MIT",
   "scripts": {
